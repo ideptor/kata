@@ -15,7 +15,7 @@ public class BlockWorld {
 	}
 
 	public Block get(int index) {
-		if(index >= blocks.size() ) return null;
+		if(index >= blocks.size() || index <0) return null;
 		return blocks.get(index);
 	}
 

@@ -26,6 +26,7 @@ public class TestBlockWorld {
 		
 		// edge case
 		assertThat(blockworld.get(n), is(nullValue()));
+		assertThat(blockworld.get(-1), is(nullValue()));
 	}
 
 }
