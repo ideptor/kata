@@ -1,1 +1,4 @@
-*.class
+*/.vc/*
+**/Debug/**
+*/DEBUG/*
+*.opendb
