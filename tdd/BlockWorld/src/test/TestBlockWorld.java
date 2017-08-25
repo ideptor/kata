@@ -48,5 +48,21 @@ public class TestBlockWorld {
 		assertThat(blocks.get(1), is(nullValue()));
 		assertThat(blocks.get(-1), is(nullValue()));
 	}
+	
+	@Test
+	public void test_move() {
+		// given
+		int n = 10;
+		BlockWorld blockworld = new BlockWorld(n);
+		BlockHolder blocks = blockworld.get(1);
+		assertThat(blocks.print(), is("1"));
+		
+		// when
+		int block = blocks.move(1);
+		
+		// then
+		assertThat(block, is(1));	
+		assertThat(blocks.print(), is(""));
+	}
 
 }
