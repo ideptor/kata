@@ -10,14 +10,23 @@ class Bowling:
     def score(self):
         sum = 0
         index = 0
+        frame = 0
 
         for pin in self._scores:    
-            sum += pin
-            if self.is_spare(index) : 
-                sum += self._scores[index+1]
-            elif self.is_strike(index) :
-                sum += self._scores[index+1] + self._scores[index+2]
+            
+            if self.is_strike(index) :
+                sum += pin + self._scores[index+1] + self._scores[index+2]
+                frame += 0.5
+            elif self.is_spare(index) : 
+                sum += pin + self._scores[index+1]              
+            else:
+                sum += pin
+
             index += 1
+            frame += 0.5
+            
+            if frame >= 10:
+                break
 
         return sum
 

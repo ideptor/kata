@@ -35,3 +35,13 @@ def test_strike():
 
     assert game.score() == 22  # 10+3+3 + 3+3
 
+'''
+def test_last_strike():
+    game = Bowling()
+    repeat_rolls(game,0,18)
+    game.roll(10)
+    game.roll(10)
+    game.roll(10)
+
+    assert game.score() == 30
+'''
