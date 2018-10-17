@@ -2,41 +2,43 @@
 class Bowling:
     
     def __init__(self):
-        self._scores = []
+        self._pins = []
 
     def roll(self, pin):
-        self._scores.append(pin)
+        self._pins.append(pin)
 
     def score(self):
         sum = 0
         index = 0
         frame = 0
 
-        for pin in self._scores:    
+        for frame in range(0,10): 
             
             if self.is_strike(index) :
-                sum += pin + self._scores[index+1] + self._scores[index+2]
-                frame += 0.5
-            elif self.is_spare(index) : 
-                sum += pin + self._scores[index+1]              
-            else:
-                sum += pin
-
-            index += 1
-            frame += 0.5
+                sum += self._pins[index] + self.bonus_strike(index)
+                index += 1
+            else : 
+                sum += self._pins[index] + self._pins[index+1]
+                if self.is_spare(index) :
+                    sum += self.bonus_spare(index)
+                index += 2
+                 
             
-            if frame >= 10:
-                break
-
         return sum
 
     def is_spare(self, index):
-        if index > 0 and self._scores[index]+self._scores[index-1] == 10 :
+        if self._pins[index]+self._pins[index+1] == 10 :
             return True
         return False
 
     def is_strike(self, index):
-        if self._scores[index] == 10 :
+        if self._pins[index] == 10 :
             return True
         return False
+
+    def bonus_spare(self, index):
+        return self._pins[index+2]
+    
+    def bonus_strike(self, index):
+        return self._pins[index+1] + self._pins[index+2]
 

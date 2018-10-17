@@ -59,3 +59,9 @@ def test_perfect_game():
 
     assert game.score() == 300
 
+def test_all_spare_game():
+    game = Bowling()
+    repeat_rolls(game, 5, 21)
+
+    assert game.score() == 150
+
