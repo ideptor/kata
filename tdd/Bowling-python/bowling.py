@@ -2,10 +2,10 @@
 class Bowling:
     
     def __init__(self):
-        self.score = 0
+        self._score = 0
 
     def roll(self, pin):
-        pass
+        self._score += pin
 
-    def sum(self):
-        return 0
+    def score(self):
+        return self._score
