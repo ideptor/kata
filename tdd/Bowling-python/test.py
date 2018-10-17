@@ -42,4 +42,14 @@ def test_last_strike():
     game.roll(10)
     game.roll(10)
 
-    assert game.score() == 30
+    assert game.score() == 30   # 10 + 10 + 10
+
+def test_last_spare():
+    game = Bowling()
+    repeat_rolls(game,0,18)
+    game.roll(3)
+    game.roll(7)
+    game.roll(5)
+
+    assert game.score() == 15   # 3+7+5
+
