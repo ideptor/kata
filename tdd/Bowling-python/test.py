@@ -53,3 +53,9 @@ def test_last_spare():
 
     assert game.score() == 15   # 3+7+5
 
+def test_perfect_game():
+    game = Bowling()
+    repeat_rolls(game, 10, 12)
+
+    assert game.score() == 300
+
