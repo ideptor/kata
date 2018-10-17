@@ -25,3 +25,13 @@ def test_spare():
     repeat_rolls(game,0,17)
 
     assert game.score() == 18   # 3+7+4+4
+
+def test_strike():
+    game = Bowling()
+    game.roll(10)
+    game.roll(3)
+    game.roll(3)
+    repeat_rolls(game, 0, 16)
+
+    assert game.score() == 22  # 10+3+3 + 3+3
+
