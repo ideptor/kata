@@ -16,7 +16,7 @@ def test_ones():
     
     assert game.score() == 20
 
-'''
+
 def test_spare():
     game = Bowling()
     game.roll(3)
@@ -25,4 +25,3 @@ def test_spare():
     repeat_rolls(game,0,17)
 
     assert game.score() == 18   # 3+7+4+4
-'''
